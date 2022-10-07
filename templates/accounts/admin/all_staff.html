@@ -1,0 +1,10 @@
+{% block title %}All Students {% endblock %}
+
+{% block content %}
+{% for staff in staff %}
+{{ staff.admin.first_name }}
+{{ staff.admin.last_name }}
+{{ staff.admin.username }}
+<a href="{% url 'accounts:edit_staff' staff.id %}">Edit staff</a>
+{% endfor %}
+{% endblock %}

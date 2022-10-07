@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% block title %}Add staff {% endblock %}
+{% block content %}
+<h4 class="text-muted">Register</h4>
+
+<div class="col-md-6 col-sm-8">
+    <form action="." method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="my-btn my-btn-primary p-2">Register</button>
+    </form>
+</div>
+{% endblock %}

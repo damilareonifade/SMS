@@ -1,0 +1,40 @@
+{% extends '../../base/base.html' %}
+{% load static %}
+{% block title %} All Students {% endblock %}
+
+{% block content %}
+<div class="content">
+    <marquee>
+        <h4>Online Biometric Fingerprint Student Course Attendance System </h4>
+    </marquee>
+    <div class="students">
+        <div class="table">
+            <a href="#" class="sign-up">Add New Students</a>
+
+            </select>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Student Name</th>
+                    <th>Matric No.</th>
+                    <th>Course</th>
+                    <th>Semester</th>
+                    <th>Actions</th>
+                </tr>
+                {% for student in student %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.admin.first_name }}</td>
+                    <td>n/cs/20/2901</td>
+                    <td> {{ student.course_id }}</td>
+                    <td>{{ student.sesion_year_id }}</td>
+                    <td><a href="{% url 'accounts:edit_student' student.id %}" class="btn-green">edit</a><a
+                            href="{% url 'accounts:delete_student' student.id %}" class="btn-red">delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'obfscas.css' %}">
+</head>
+<link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.css' %}">
+
+
+<body>
+    <input type="checkbox" id="check">
+    <!-- ---------------------header---------------------------------- -->
+    <header>
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar-btn"></i>
+        </label>
+        <div class="left-area">
+            <div class="logo"> <img src="{% static 'img/kindpng_1447556.png' %}" alt="logo">
+                <h3>BFS<span>CAS</span></h3>
+            </div>
+        </div>
+        <div class="right-area">
+            <a href="#" class="sign-up">Add New Student</a>
+        </div>
+    </header>
+    <!-- ------------------------sidebar---------------------------------- -->
+    <div class="sidebar">
+        <div class="profile">
+            <img src="{% static 'img/PngItem_1503945.png' %}" alt="profile img">
+
+            <div class="profile-details">
+                <h2 class="profile-name">{{ request.user.username }}</h2>
+                <h2 class="matric-number">N/CS/20/2908</h2>
+            </div>
+
+        </div>
+        <a href="#"><i class="fas fa-clipboard"></i><span>Dashboard</span></a>
+        <a href="{% url 'accounts:all_students' %}"><i class="fas fa-graduation-cap"></i><span>Students</span></a>
+        <a href="{% url 'accounts:all_courses' %}"><i class="fas fa-table"></i><span>Courses</span></a>
+        <a href="#"><i class="fas fa-list"></i><span>Attendance list</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>Attendance Report</span></a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i><span>Finance</span></a>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends '../../base/base.html' %}
+{% load static %}
+{% block title %} All Students {% endblock %}
+
+{% block content %}
+<div class="content">
+    <marquee>
+        <h4>Online Biometric Fingerprint Student Course Attendance System </h4>
+    </marquee>
+    <div class="students">
+        <div class="table">
+            <a href="{% url 'accounts:add_course' %}" class="sign-up">Add New Course</a>
+
+            </select>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Course Name</th>
+                    <th>Course HOD</th>
+                    <th>Actions</th>
+                </tr>
+                {% for course in course %}
+                <tr>
+                    <td>{{ course.id }}</td>
+                    <td>{{ course.courses }}</td>
+                    <td>{{ course.course_HOD }}</td>
+                    <td><a href="{% url 'accounts:edit_course' course.id %}" class="btn-green">Edit Course</a>
+                        <a href="{% url 'accounts:delete_course' course.id %}" class="btn-red"
+                            on-click="Are you sure you want to delete it">Delete Course</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% block content %}
+{% for subject in subjects %}
+<div>
+    {{ subject.subject }}
+
+</div>
+<div>
+    {{ subject.level }}
+    <a href="{% url 'accounts:edit_subject' subject.id %}">Edit Subjects</a>
+</div>
+{% endfor %}
+{% endblock %}
